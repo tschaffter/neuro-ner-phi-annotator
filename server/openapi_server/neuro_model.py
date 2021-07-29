@@ -2,15 +2,22 @@
 from neuroner import neuromodel
 
 nn = neuromodel.NeuroNER(train_model=False, use_pretrained_model=True, dataset_text_folder="data/example_unannotated_texts", pretrained_model_folder ="trained_models/i2b2_2014_glove_spacy_bioes", 
-spacylanguage="en_core_web_sm")
+parameters_filepath='.', spacylanguage="en_core_web_sm", load_all_pretrained_token_embeddings=1,maximum_number_of_epochs=10000)
 
 
-a = ((nn.predict("""My name is Wolfgang and I live in Columbia Missouri . My phone number is
-alternate no is 5731111111. Tom's email is wolfgang_00000@yahoo.com. My website is
-www.stilt.com. My social security is 886-00-0000. I was born on 1st of January 1900. 
-Today is 07/09/2021."""
-)))
+result = nn.predict("""Dr. James and I live in Columbia Missouri. 
+              My phone number is 573-529-5658
+              Tom's email is clem_james@yahoo.com. 
+              My favorite website is https://www.google.com. 
+              My social security is 886125250. 
+              I was born on January 1st, 1900.  
+              Today is 07/09/2021.
+          """
+)
 
+print("********************************************")
+for record in result:
+    print(record['text'], record['start'], record['end'], record['type'])
 # print(dir(nn))
 # print((a[0]))
 #python -m spacy download en_core_web_sm
