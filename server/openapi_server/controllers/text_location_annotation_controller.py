@@ -8,25 +8,25 @@ from openapi_server.models.text_location_annotation_request import TextLocationA
 from openapi_server.models.text_location_annotation_response import TextLocationAnnotationResponse  # noqa: E501
 
 
-class Data:
-    def __init__(self):
-        df = pd.read_csv("data/streets.csv")
-        self._streets = df['Street'].str.lower().unique().tolist()
+# class Data:
+#     def __init__(self):
+#         df = pd.read_csv("data/streets.csv")
+#         self._streets = df['Street'].str.lower().unique().tolist()
 
-        df = pd.read_csv("data/cities.csv")
-        self._cities = df['City'].str.lower().unique().tolist()
+#         df = pd.read_csv("data/cities.csv")
+#         self._cities = df['City'].str.lower().unique().tolist()
 
-        df = pd.read_csv("data/states.csv")
-        self._states = df['State'].str.lower().unique().tolist()
+#         df = pd.read_csv("data/states.csv")
+#         self._states = df['State'].str.lower().unique().tolist()
 
-        df = pd.read_csv("data/countries.csv")
-        self._countries = df['Name'].str.lower().unique().tolist()
+#         df = pd.read_csv("data/countries.csv")
+#         self._countries = df['Name'].str.lower().unique().tolist()
 
-        df = pd.read_csv("data/other_locations.csv")
-        self._others = df['Other'].str.lower().unique().tolist()
+#         df = pd.read_csv("data/other_locations.csv")
+#         self._others = df['Other'].str.lower().unique().tolist()
 
 
-data = Data()
+# data = Data()
 
 
 def create_text_location_annotations():  # noqa: E501
@@ -48,30 +48,30 @@ def create_text_location_annotations():  # noqa: E501
             annotations = []
 
             # TODO: Add data sources
-            for street in data._streets:
-                matches = re.finditer(
-                    r'\b({})\b'.format(street), note._text, re.IGNORECASE)
-                add_annotations(annotations, matches, 'street')
+            # for street in data._streets:
+            #     matches = re.finditer(
+            #         r'\b({})\b'.format(street), note._text, re.IGNORECASE)
+            #     add_annotations(annotations, matches, 'street')
 
-            for city in data._cities:
-                matches = re.finditer(
-                    r'\b({})\b'.format(city), note._text, re.IGNORECASE)
-                add_annotations(annotations, matches, 'city')
+            # for city in data._cities:
+            #     matches = re.finditer(
+            #         r'\b({})\b'.format(city), note._text, re.IGNORECASE)
+            #     add_annotations(annotations, matches, 'city')
 
-            for state in data._states:
-                matches = re.finditer(
-                    r'\b({})\b'.format(state), note._text, re.IGNORECASE)
-                add_annotations(annotations, matches, 'state')
+            # for state in data._states:
+            #     matches = re.finditer(
+            #         r'\b({})\b'.format(state), note._text, re.IGNORECASE)
+            #     add_annotations(annotations, matches, 'state')
 
-            for country in data._countries:
-                matches = re.finditer(
-                    r'\b({})\b'.format(country), note._text, re.IGNORECASE)
-                add_annotations(annotations, matches, 'country')
+            # for country in data._countries:
+            #     matches = re.finditer(
+            #         r'\b({})\b'.format(country), note._text, re.IGNORECASE)
+            #     add_annotations(annotations, matches, 'country')
 
-            for other in data._others:
-                matches = re.finditer(
-                    r'\b({})\b'.format(other), note._text, re.IGNORECASE)
-                add_annotations(annotations, matches, 'other')
+            # for other in data._others:
+            #     matches = re.finditer(
+            #         r'\b({})\b'.format(other), note._text, re.IGNORECASE)
+            #     add_annotations(annotations, matches, 'other')
 
             res = TextLocationAnnotationResponse(annotations)
             status = 200
