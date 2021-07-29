@@ -14,8 +14,5 @@ class Neuroner:
 
 model= Neuroner().nn
 def predict(text):
-    
     result = model.predict(text)
-
-    
     return result
