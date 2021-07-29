@@ -15,10 +15,6 @@ result = nn.predict("""Dr. James and I live in Columbia Missouri.
           """
 )
 
-print("********************************************")
 for record in result:
     print(record['text'], record['start'], record['end'], record['type'])
-# print(dir(nn))
-# print((a[0]))
-#python -m spacy download en_core_web_sm
 
