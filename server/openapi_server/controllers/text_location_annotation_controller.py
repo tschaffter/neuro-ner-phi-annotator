@@ -26,9 +26,7 @@ def create_text_location_annotations():  # noqa: E501
             note = annotation_request._note
             annotations = []
             matches = model.predict(note._text)
-
             add_annotations(annotations, matches)
-
             res = TextLocationAnnotationResponse(annotations)
             status = 200
         except Exception as error:
@@ -49,6 +47,6 @@ def add_annotations(annotations, matches):
                     start=match['start'],
                     length=len(match['text']),
                     text=match['text'],
-                    location_type=match['type'],
+                    location_type=match['type'].lower(),
                     confidence=95.5
                 ))

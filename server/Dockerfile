@@ -30,7 +30,6 @@ WORKDIR /
 COPY docker-entrypoint.sh .
 RUN chmod +x docker-entrypoint.sh
 
-
 EXPOSE 8080
 
 RUN echo 'uwsgi_read_timeout 300s > /etc/nginx/conf.d/custom_timeout.conf'

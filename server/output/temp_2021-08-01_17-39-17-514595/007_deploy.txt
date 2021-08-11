@@ -1,0 +1,20 @@
+On temp_00007 0 2 O O
+12/26/2020 temp_00007 3 13 O B-DATE
+, temp_00007 13 14 O O
+Ms. temp_00007 15 18 O O
+Chloe temp_00007 19 24 O O
+Price temp_00007 25 30 O O
+met temp_00007 31 34 O O
+with temp_00007 35 39 O O
+Dr. temp_00007 40 43 O O
+Prescott temp_00007 44 52 O O
+in temp_00007 53 55 O O
+Seattle temp_00007 56 63 O O
+. temp_00007 63 64 O O
+
+Her temp_00007 65 68 O O
+SSN temp_00007 69 72 O O
+is temp_00007 73 75 O O
+23489890 temp_00007 76 84 O B-IDNUM
+. temp_00007 84 85 O O
+

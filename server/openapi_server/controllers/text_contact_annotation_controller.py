@@ -37,11 +37,11 @@ def add_contact_annotation(annotations, matches):
     annotations array specified.
     """
     for match in matches:
-        if match['type'] in ["PHONE"]:
+        if match['type'] in ["PHONE","URL","EMAIL","FAX"]:
             annotations.append(TextContactAnnotation(
                 start=match['start'],
                 length=len(match['text']),
                 text=match['text'],
-                contact_type=match['type'],
+                contact_type=match['type'].lower(),
                 confidence=95.5
             ))

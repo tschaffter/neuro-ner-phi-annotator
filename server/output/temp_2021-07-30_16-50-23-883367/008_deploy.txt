@@ -1,0 +1,14 @@
+On temp_00008 0 2 O O
+12/26/2020 temp_00008 3 13 O B-DATE
+, temp_00008 13 14 O O
+Ms. temp_00008 15 18 O O
+Chloe temp_00008 19 24 O O
+Price temp_00008 25 30 O O
+met temp_00008 31 34 O O
+with temp_00008 35 39 O O
+Dr. temp_00008 40 43 O O
+Prescott temp_00008 44 52 O O
+in temp_00008 53 55 O O
+Seattle temp_00008 56 63 O O
+. temp_00008 63 64 O O
+
