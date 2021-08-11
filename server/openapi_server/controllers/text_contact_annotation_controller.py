@@ -17,9 +17,7 @@ def create_text_contact_annotations(text_contact_annotation_request=None):  # no
         try:
             annotation_request = TextContactAnnotationRequest.from_dict(connexion.request.get_json())  # noqa: E501
             note = annotation_request._note
-            print(note)
             annotations = []
-            print(note._text)
             matches = model.predict(note._text)
             
             add_contact_annotation(annotations, matches)
