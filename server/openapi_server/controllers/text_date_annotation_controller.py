@@ -24,7 +24,6 @@ def create_text_date_annotations():  # noqa: E501
                 connexion.request.get_json())  # noqa: E501
             note = annotation_request._note
             annotations = []
-            print(note._text)
             matches = model.predict(note._text)     
             add_date_annotation(annotations, matches)
             res = TextDateAnnotationResponse(annotations)
@@ -51,6 +50,15 @@ def add_date_annotation(annotations, matches):
                 confidence=95.5
             ))
 
+    for match in matches:
+        if match['type'] in ["DATE"]:
+            annotations.append(TextDateAnnotation(
+                start=match['start'],
+                length=len(match['text']),
+                text=match['text'],
+                date_format=match['type'].lower(),
+                confidence=95.5
+            ))
 
 def get_date_format(date_str):
     date_pattern = {"MM/DD/YYYY": "([1-9]|0[1-9]|1[0-2])(/)\
