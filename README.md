@@ -21,14 +21,9 @@ Annotator API] written in Python-Flask. An NLP Sandbox PHI annotator takes as
 input a clinical note (text) and outputs a list of predicted PHI annotations
 found in the clinical note. Here PHIs are identified using regular expressions.
 
-This tool is provided to NLP developers who develop in Python as a starting
-point to package their own PHI annotator as an NLP Sandbox tool (see section
-[Development](#Development)). This section also describes how to generate a tool
-"stub" using [openapi-generator] for 50+ programming languages-frameworks. This
-repository includes a GitHub CI/CD workflow that lints, tests, builds and pushes
-a Docker image of this tool to Synapse Docker Registry. This image of this
-example tool can be submitted as-is on [NLPSandbox.io] to benchmark its
-performance -- just don't expect a high performance!
+This NLP Sandbox tool uses the [NeuroNER](https://github.com/Franck-Dernoncourt/NeuroNER) model to annotate PHI in clinical notes. 
+Because NLP Sandbox tools must run without access to internet connection, this implementation 
+configures NeuroNer to run offline.
 
 
 ## Contents
@@ -51,6 +46,7 @@ performance -- just don't expect a high performance!
   - [Testing](#Testing)
   - [Preventing an NLP Sandbox tool from connecting to remote
     servers](#Preventing-an-NLP-Sandbox-tool-from-connecting-to-remote-servers)
+- [Annotation](#Annotation)
 - [Versioning](#Versioning)
   - [GitHub release tags](#GitHub-release-tags)
   - [Docker image tags](#Docker-image-tags)
@@ -62,12 +58,13 @@ performance -- just don't expect a high performance!
 
 - NLP Sandbox schemas version: 1.2.0
 - NLP Sandbox tool version: 1.2.1
-- Docker image: [docker.synapse.org/syn22277123/phi-annotator-example]
+- Docker image: [docker.synapse.org/syn26015513/neuro-ner-phi-annotator-example]
 
 
 ## Requirements
 
 - [Docker Engine] >=19.03.0
+- Download word embeddings from http://neuroner.com/data/word_vectors/glove.6B.100d.zip, unzip them to the folder /server/word_vectors
 
 
 ## Usage
@@ -286,6 +283,16 @@ being evaluated on [NLPSandbox.io], additional measures are put in place to
 prevent tools from connecting to remote servers.
 
 
+## Annotation
+The entities that can be identified using the
+neuro-phi-annotator are listed below:
+
+| #     | Enitity  | 
+|------------------|
+|1.     | ID       |
+|2.     | DATE     |
+|3.     | LOCATION |
+|4.     | CONTACT  |
 ## Versioning
 
 ### GitHub release tags
