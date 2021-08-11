@@ -288,7 +288,7 @@ The entities that can be identified using the
 neuro-phi-annotator are listed below:
 
 | #     | Enitity  | 
-|------------------|
+|-------|----------|
 |1.     | ID       |
 |2.     | DATE     |
 |3.     | LOCATION |
